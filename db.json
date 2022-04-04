@@ -1,0 +1,71 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "pokemons": [
+    {
+      "id": 1,
+      "name": "Carapuce",
+      "index": 7,
+      "type": {
+        "type": "eau",
+        "id": 1
+      }
+    },
+    {
+      "id": 2,
+      "name": "Carabaffe",
+      "index": 8,
+      "type": {
+        "type": "eau",
+        "id": 1
+      }
+    },
+    {
+      "id": 3,
+      "name": "Tortank",
+      "index": 9,
+      "type": {
+        "type": "eau",
+        "id": 1
+      }
+    },
+    {
+      "id": 4,
+      "name": "Bulbizarre",
+      "index": 1,
+      "type": {
+        "type": "feu",
+        "id": 2
+      }
+    }
+  ],
+  "typesPokemon": [
+    {
+      "type": "eau",
+      "id": 1
+    },
+    {
+      "type": "feu",
+      "id": 2
+    },
+    {
+      "type": "herbe",
+      "id": 3
+    }
+  ]
+}

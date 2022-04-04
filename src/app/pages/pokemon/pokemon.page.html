@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Liste des pokemon</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <app-search-bar (onsearch)="search($event)"></app-search-bar>
+  </ion-toolbar>
+  <section>
+    <p>Trier par</p>
+    <ion-button fill="outline" (click)="orderBy('name')">nom</ion-button>
+    <ion-button fill="outline" (click)="orderBy('index')">index</ion-button>
+  </section>
+</ion-header>
+
+<ion-content>
+  <ion-list inset="true">
+    <ion-item *ngFor="let pokemon of pokemonListDisplayed">
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title>{{pokemon.name}}</ion-card-title>
+          <ion-card-subtitle>index : {{pokemon.index}}</ion-card-subtitle>
+        </ion-card-header>
+        <ion-card-content>
+          <p>type : {{pokemon.type.type}}</p>
+        </ion-card-content>
+      </ion-card>
+      <ion-buttons>
+        <ion-button
+          color="secondary"
+          fill="outline"
+          (click)="openEditModal(pokemon)"
+          ><ion-icon name="create-outline"></ion-icon>
+        </ion-button>
+        <ion-button
+          color="danger"
+          fill="outline"
+          (click)="openDeleteModal(pokemon)"
+          ><ion-icon name="trash-outline"></ion-icon
+        ></ion-button>
+      </ion-buttons>
+    </ion-item>
+  </ion-list>
+</ion-content>
+
+<ion-footer>
+  <ion-button color="success" fill="outline" (click)="openEditModal(null)">
+    <ion-icon name="add-outline"></ion-icon>
+  </ion-button>
+</ion-footer>

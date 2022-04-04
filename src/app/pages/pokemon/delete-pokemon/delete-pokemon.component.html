@@ -1,0 +1,17 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Voulez-vous vraiment supprimer ce Pokémon?</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>{{ pokemon.name }}</ion-item>
+  <ion-item>index : {{ pokemon.index }}</ion-item>
+  <ion-item> type : {{ pokemon.type.type }} </ion-item>
+  <ion-button color="success" fill="outline" (click)="delete()"
+    >Supprimer</ion-button
+  >
+  <ion-button color="danger" fill="outline" (click)="cancel()"
+    >Annuler</ion-button
+  >
+</ion-content>

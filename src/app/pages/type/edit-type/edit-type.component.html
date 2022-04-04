@@ -1,0 +1,18 @@
+<form [formGroup]="editForm" (ngSubmit)="add()">
+  <div>
+    <h2>Saisir un nouveau Type</h2>
+
+    <ion-item>
+      <ion-label>type:</ion-label>
+      <ion-input type="text" formControlName="type"></ion-input>
+    </ion-item>
+  </div>
+  <div>
+    <ion-button
+      type="submit"
+      [disabled]="!editForm.valid"
+    >
+      Ajouter
+    </ion-button>
+  </div>
+</form>

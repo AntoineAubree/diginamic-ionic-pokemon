@@ -1,0 +1,78 @@
+<ion-header>
+  <ion-toolbar>
+    <div *ngIf="action === 'add'; then addTitle; else updateTitle"></div>
+    <ng-template #addTitle
+      ><ion-title>Ajouter un Pokémon</ion-title></ng-template
+    >
+    <ng-template #updateTitle
+      ><ion-title>Modifier votre Pokémon</ion-title></ng-template
+    >
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="editForm" (ngSubmit)="edit()">
+    <div>
+      <ion-item>
+        <ion-label>nom :</ion-label>
+        <ion-input type="text" formControlName="name"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>index :</ion-label>
+        <ion-input type="number" formControlName="index"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Types : </ion-label>
+        <ion-select
+          formControlName="type"
+          ok-text="Valider"
+          cancel-text="Annuler"
+        >
+          <ion-select-option *ngFor="let type of types" [value]="type">
+            {{ type.type }}
+          </ion-select-option>
+        </ion-select>
+      </ion-item>
+    </div>
+    <div *ngIf="action === 'add'; then addButton; else updateButton"></div>
+    <ng-template #addButton>
+      <ion-button
+        color="success"
+        fill="outline"
+        type="submit"
+        [disabled]="!editForm.valid"
+      >
+        Ajouter
+      </ion-button>
+    </ng-template>
+    <ng-template #updateButton>
+      <ion-button
+        color="success"
+        fill="outline"
+        type="submit"
+        [disabled]="!editForm.valid"
+      >
+        Modifier
+      </ion-button>
+    </ng-template>
+    <ion-button color="danger" fill="outline" (click)="cancel()"
+      >Annuler</ion-button
+    >
+  </form>
+  <form [formGroup]="editTypeForm" (ngSubmit)="editType()">
+    <div>
+      <ion-item>
+        <ion-label>nouveau type :</ion-label>
+        <ion-input type="text" formControlName="type"></ion-input>
+      </ion-item>
+    </div>
+    <ion-button
+      color="success"
+      fill="outline"
+      type="submit"
+      [disabled]="!editTypeForm.valid"
+    >
+      Ajouter
+    </ion-button>
+  </form>
+</ion-content>
